@@ -90,9 +90,17 @@ def load_intervention_data(
       base_vars = prompt_to_vars[base_examples[i]]
       source_vars = prompt_to_vars[source_examples[j]]
       # print(f"DEBUG: base_vars={base_vars}, source_vars={source_vars}")
+
       if filter_fn and not filter_fn(base_vars, source_vars):
-        print("DEBUG: skipped because of the filter function")
+        if (source_vars.contains("1996")):
+          print("DEBUG: skipped because of the filter function")
+          print(f" >>  base: {base_vars}, src: {source_vars}")
+
+        # TODO: Aditi
+        # instead of not including it, we want to skip this base/source pairing and just match the next available base/source for a total of 10
+        # for some reason the base/source pairings are not adding up to a total of 10 for certain years.
         continue
+
       # Set split.
       # split_key = "...-train" or "...-val" or "...-test"
       # each key is a “split identifier,” and
