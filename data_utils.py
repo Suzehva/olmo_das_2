@@ -89,8 +89,9 @@ def load_intervention_data(
     for i in range(len(base_examples)):
       base_vars = prompt_to_vars[base_examples[i]]
       source_vars = prompt_to_vars[source_examples[j]]
-      print(f"DEBUG: base_vars={base_vars}, source_vars={source_vars}")
+      # print(f"DEBUG: base_vars={base_vars}, source_vars={source_vars}")
       if filter_fn and not filter_fn(base_vars, source_vars):
+        print("DEBUG: skipped because of the filter function")
         continue
       # Set split.
       # split_key = "...-train" or "...-val" or "...-test"
