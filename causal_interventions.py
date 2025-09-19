@@ -67,6 +67,7 @@ def binary_comparison_metrics(
   return metrics
 
 
+import json
 # TODO: Aditi 
 # How os IIA calculated
 def compute_metrics(
@@ -116,6 +117,14 @@ def compute_metrics(
       correct_token_count += (
         (~padding_tokens & match_tokens).float().sum().tolist()
       )
+
+      # added by aditi to keep track of where the iia +/- scores come from
+      with open("iia_debug.jsonl", "a") as f:
+        f.write(json.dumps({
+            "gold": actual_test_labels.tolist(),
+            "pred": pred_test_labels.tolist(),
+            "match": torch.all(correct_labels, axis=-1).float().tolist()
+        }) + "\n")
 
       # For binary classification, log the actual prediction by comparing to
       # a single-side label
