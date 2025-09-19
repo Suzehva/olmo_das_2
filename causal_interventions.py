@@ -78,7 +78,7 @@ def compute_metrics(
   **kwargs,
 ):
   """Computes squence-level and token-level accuracy."""
-  print("\n\n COMPUTING ACCURACY \n\n")
+  # print("\n\n COMPUTING ACCURACY \n\n")
   metrics = {}
   for key, eval_preds in keyed_eval_preds.items():
     total_count, total_token_count = 0, 0
@@ -89,7 +89,7 @@ def compute_metrics(
 
       # total of 16 batches
       # unsure what the size of each batch is
-      print(f"eval_pred = {eval_pred}\neval_label = {eval_label}")
+      # print(f"eval_pred = {eval_pred}\neval_label = {eval_label}")
 
       if inference_mode == "force_decode":
         eval_pred = eval_pred[:, :-1]
