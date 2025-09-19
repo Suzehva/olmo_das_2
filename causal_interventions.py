@@ -67,6 +67,8 @@ def binary_comparison_metrics(
   return metrics
 
 
+# TODO: Aditi 
+# How os IIA calculated
 def compute_metrics(
   keyed_eval_preds,
   eval_labels,
@@ -76,6 +78,7 @@ def compute_metrics(
   **kwargs,
 ):
   """Computes squence-level and token-level accuracy."""
+  print("\n\n COMPUTING ACCURACY \n\n")
   metrics = {}
   for key, eval_preds in keyed_eval_preds.items():
     total_count, total_token_count = 0, 0
@@ -83,6 +86,11 @@ def compute_metrics(
     class_0_correct_count = 0
     class_0_val = eval_labels[0][0, -1]
     for eval_pred, eval_label in zip(eval_preds, eval_labels):
+
+      # total of 16 batches
+      # unsure what the size of each batch is
+      print(f"eval_pred = {eval_pred}\neval_label = {eval_label}")
+
       if inference_mode == "force_decode":
         eval_pred = eval_pred[:, :-1]
 
@@ -108,6 +116,7 @@ def compute_metrics(
       correct_token_count += (
         (~padding_tokens & match_tokens).float().sum().tolist()
       )
+
       # For binary classification, log the actual prediction by comparing to
       # a single-side label
       class_0_labels = (torch.ones_like(actual_test_labels) * class_0_val).to(
@@ -129,10 +138,10 @@ def compute_metrics(
       "token_accuracy": token_accuracy,
       "class_0_accuracy": class_0_accuracy,
     }
+
   # For compatablity with other metrics.
   metrics["accuracy"] = metrics["inv_outputs"]["accuracy"]
   return metrics
-
 
 def compute_string_based_metrics(
   keyed_eval_preds,
@@ -481,6 +490,7 @@ def eval_with_interventions_batched(
             )
 
           # Aggregate metrics
+          # The compute metrics function computes the IIA
           eval_metrics = {
             label_type: compute_metrics_fn(
               keyed_eval_preds=eval_preds,
@@ -493,6 +503,11 @@ def eval_with_interventions_batched(
             for label_type in eval_labels
             if label_type.endswith("labels")
           }
+          # print(f"\n\neval metrics \n{eval_metrics}")
+          # eval metrics 
+          # {'base_labels': {'base_outputs': {'accuracy': 1.0, 'token_accuracy': 1.0, 'class_0_accuracy': 0.4}, 'inv_outputs': {'accuracy': 0.8, 'token_accuracy': 0.8, 'class_0_accuracy': 0.3}, 'accuracy': 0.8}, 'labels': {'base_outputs': {'accuracy': 0.0, 'token_accuracy': 0.0, 'class_0_accuracy': 0.0}, 'inv_outputs': {'accuracy': 0.1, 'token_accuracy': 0.1, 'class_0_accuracy': 0.1}, 'accuracy': 0.1}}
+          # 'source-In 2023 there-correct-test': {'base_labels': {'base_outputs': {'accuracy': 1.0, 'token_accuracy': 1.0, 'class_0_accuracy': 0.4}, 'inv_outputs': {'accuracy': 0.8, 'token_accuracy': 0.8, 'class_0_accuracy': 0.3}, 'accuracy': 0.8}, 'labels': {'base_outputs': {'accuracy': 0.0, 'token_accuracy': 0.0, 'class_0_accuracy': 0.0}, 'inv_outputs': {'accuracy': 0.1, 'token_accuracy': 0.1, 'class_0_accuracy': 0.1}, 'accuracy': 0.1}}
+
 
           inv_output_tokens = [
             extract_tokens_from_output(inference_mode, i, max_new_tokens, None)

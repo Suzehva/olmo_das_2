@@ -30,6 +30,9 @@ def load_intervention_data(
   max_example_per_split=20480,
   max_example_per_eval_split=10,
 ):
+  
+  random.seed(0) # Aditi
+
   # inv_label_fn: A callable that takes in the variables parsed from the
   # base and source input, i.e., two dictionaries and returns a boolean.
   # verified_examples: data['train']['correct']
@@ -92,12 +95,11 @@ def load_intervention_data(
       # print(f"DEBUG: base_vars={base_vars}, source_vars={source_vars}")
 
       if filter_fn and not filter_fn(base_vars, source_vars):
-        if (source_vars.contains("1996")):
-          print("DEBUG: skipped because of the filter function")
-          print(f" >>  base: {base_vars}, src: {source_vars}")
+        # print("DEBUG: skipped because of the filter function")
+        # print(f" >>  base: {base_vars}, src: {source_vars}")
 
-        # TODO: Aditi
-        # instead of not including it, we want to skip this base/source pairing and just match the next available base/source for a total of 10
+        # TODO: Aditi (Sept 18 2025)
+        # instead of only not including it, we want to skip this base/source pairing and just match the next available base/source for a total of 10
         # for some reason the base/source pairings are not adding up to a total of 10 for certain years.
         continue
 
@@ -218,6 +220,9 @@ def load_intervention_data(
           or (mode == "das" and split.endswith("-test"))
           else max_example_per_split
         ]
+        # TODO: Aditi
+        # should we remove the limit of 10 (max_example_per_eval_split) so we use as many as possible for test, and
+        # similarly for max_example_per_split so we use many for train?
       ],
       features=FEATURE_TYPES,
     )
