@@ -30,7 +30,7 @@ def load_intervention_data(
   max_example_per_split=20480,
   max_example_per_eval_split=10,
 ):
-  
+  max_example_per_eval_split = 100 # hardcoded for now
   random.seed(0) # Aditi
 
   # inv_label_fn: A callable that takes in the variables parsed from the
@@ -218,7 +218,7 @@ def load_intervention_data(
           : max_example_per_eval_split  # 10
           if mode == "localization"
           or (mode == "das" and split.endswith("-test"))
-          else max_example_per_split
+          else max_example_per_split # for training
         ]
         # TODO: Aditi
         # should we remove the limit of 10 (max_example_per_eval_split) so we use as many as possible for test, and
