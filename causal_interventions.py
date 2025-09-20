@@ -148,6 +148,9 @@ def compute_metrics(
       "class_0_accuracy": class_0_accuracy,
     }
 
+  with open("iia_debug.jsonl", "a") as f:
+    f.write("\n")  # <-- extra newline to separate function calls
+
   # For compatablity with other metrics.
   metrics["accuracy"] = metrics["inv_outputs"]["accuracy"]
   return metrics
