@@ -1,0 +1,15 @@
+model: OLMo-2-0425-1B_main
+prompt = ['In {year} there']
+inv dim: [8, 16]
+
+layer=0 	0.50	0.51
+layer=1 	0.50	0.51
+layer=2 	0.31	0.50
+layer=3 	0.48	0.66
+layer=4 	0.50	0.50
+layer=5 	0.51	0.50
+layer=6 	0.48	0.51
+layer=7 	0.31	0.49
+layer=8 	0.06	0.14
+layer=9 	0.09	0.28
+layer=10 	0.08	0.05
