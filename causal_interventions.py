@@ -66,7 +66,6 @@ def binary_comparison_metrics(
   metrics["accuracy"] = metrics["inv_outputs"]["accuracy"]
   return metrics
 
-
 import json
 # TODO: Aditi 
 # How os IIA calculated

@@ -30,8 +30,10 @@ def load_intervention_data(
   max_example_per_split=20480,
   max_example_per_eval_split=10,
 ):
-  max_example_per_eval_split = 100 # hardcoded for now
-  random.seed(0) # Aditi
+  
+  # REMOVE THIS!!
+  # max_example_per_eval_split = 100 # hardcoded for now
+  # random.seed(0) # Aditi
 
   # inv_label_fn: A callable that takes in the variables parsed from the
   # base and source input, i.e., two dictionaries and returns a boolean.
