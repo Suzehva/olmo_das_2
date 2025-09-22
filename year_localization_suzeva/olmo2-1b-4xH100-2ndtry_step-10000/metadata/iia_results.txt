@@ -1,0 +1,10 @@
+model: olmo2-1b-4xH100-2ndtry_step-10000
+inv_dims: [8]
+
+layer=0	0.01
+layer=1	0.02
+layer=2	0.18
+layer=3	0.39
+layer=4	0.43
+layer=5	0.72
+layer=6	0.68
