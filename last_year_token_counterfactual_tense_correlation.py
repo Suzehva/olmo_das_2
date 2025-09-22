@@ -223,7 +223,7 @@ USER = 'aditijb'
 # EXPERIMENT_NAME = f"year_localization_suzeva/olmo2-1b-4xH100-2ndtry_step-10000" 
 
 model_name = 'OLMo-2-0425-1B'
-EXPERIMENT_NAME = 'year_localization_allenai_OLMo-2-0425-1B_main_new_support_files' 
+EXPERIMENT_NAME = 'year_localization_allenai_OLMo-2-0425-1B_main_datafull_train0step_testfull' 
 model_name = 'OLMo-2-0425-1B'
 revision = 'main'
 
