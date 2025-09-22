@@ -1,0 +1,10 @@
+model: OLMo-2-0425-1B_main
+inv_dims: [8]
+
+layer=0	0.43
+layer=1	0.40
+layer=2	0.44
+layer=3	0.42
+layer=4	0.48
+layer=5	0.40
+layer=6	0.40

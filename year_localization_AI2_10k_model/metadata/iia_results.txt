@@ -1,0 +1,10 @@
+model: OLMo-2-0425-1B_stage1-step10000-tokens21B
+inv_dims: [8]
+
+layer=0	0.17
+layer=1	0.25
+layer=2	0.53
+layer=3	0.53
+layer=4	0.60
+layer=5	0.67
+layer=6	0.73

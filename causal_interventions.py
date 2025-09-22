@@ -118,12 +118,15 @@ def compute_metrics(
       )
 
       # added by aditi to keep track of where the iia +/- scores come from
-      with open("iia_debug.jsonl", "a") as f:
-        f.write(json.dumps({
-            "gold": actual_test_labels.tolist(),
-            "pred": pred_test_labels.tolist(),
-            "match": torch.all(correct_labels, axis=-1).float().tolist()
-        }) + "\n")
+      # here is an example line:
+      # {"gold": [[690], [690], [574], [690], [574], [690], [690], [574], [690], [690], [690], [574], [1051], [574], [690], [690]], "pred": [[574], [574], [690], [574], [690], [574], [574], [690], [1051], [1051], [574], [690], [1051], [690], [574], [1051]], "match": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]}
+      
+      # with open("iia_debug.jsonl", "a") as f:
+      #   f.write(json.dumps({
+      #       "gold": actual_test_labels.tolist(),
+      #       "pred": pred_test_labels.tolist(),
+      #       "match": torch.all(correct_labels, axis=-1).float().tolist()
+      #   }) + "\n")
 
       # For binary classification, log the actual prediction by comparing to
       # a single-side label
