@@ -30,6 +30,11 @@ def load_intervention_data(
   max_example_per_split=20480,
   max_example_per_eval_split=10,
 ):
+  
+  # REMOVE THIS!!
+  # max_example_per_eval_split = 100 # hardcoded for now
+  # random.seed(0) # Aditi
+
   # inv_label_fn: A callable that takes in the variables parsed from the
   # base and source input, i.e., two dictionaries and returns a boolean.
   # verified_examples: data['train']['correct']
@@ -89,8 +94,17 @@ def load_intervention_data(
     for i in range(len(base_examples)):
       base_vars = prompt_to_vars[base_examples[i]]
       source_vars = prompt_to_vars[source_examples[j]]
+      # print(f"DEBUG: base_vars={base_vars}, source_vars={source_vars}")
+
       if filter_fn and not filter_fn(base_vars, source_vars):
+        # print("DEBUG: skipped because of the filter function")
+        # print(f" >>  base: {base_vars}, src: {source_vars}")
+
+        # TODO: Aditi (Sept 18 2025)
+        # instead of only not including it, we want to skip this base/source pairing and just match the next available base/source for a total of 10
+        # for some reason the base/source pairings are not adding up to a total of 10 for certain years.
         continue
+
       # Set split.
       # split_key = "...-train" or "...-val" or "...-test"
       # each key is a “split identifier,” and
@@ -151,7 +165,7 @@ def load_intervention_data(
           "source_label": source_vars["label"],
           "inv_label": inv_label_fn(base_vars, source_vars),
           # Determine the intervention locations.
-          "split": base_vars["split"],
+          "split": base_vars["split"], # says "_BASE_TEMPLATE"
           "source_split": source_vars["split"],
         }
       )
@@ -203,11 +217,14 @@ def load_intervention_data(
       [
         x
         for x in split_to_raw_example[split][
-          : max_example_per_eval_split
+          : max_example_per_eval_split  # 10
           if mode == "localization"
           or (mode == "das" and split.endswith("-test"))
-          else max_example_per_split
+          else max_example_per_split # for training
         ]
+        # TODO: Aditi
+        # should we remove the limit of 10 (max_example_per_eval_split) so we use as many as possible for test, and
+        # similarly for max_example_per_split so we use many for train?
       ],
       features=FEATURE_TYPES,
     )

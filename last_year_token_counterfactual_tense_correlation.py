@@ -217,12 +217,15 @@ def counts_was_were_is_are_will():
 
 USER = 'aditijb'
 
+# model_name = "olmo2-1b-4xH100-2ndtry"
+# model_id = "suzeva/olmo2-1b-4xH100-2ndtry"
+# revision = "step-10000"
+# EXPERIMENT_NAME = f"year_localization_suzeva/olmo2-1b-4xH100-2ndtry_step-10000" 
 
-model_name = "olmo2-1b-4xH100-2ndtry"
-model_id = "suzeva/olmo2-1b-4xH100-2ndtry"
-revision = "step-10000"
-EXPERIMENT_NAME = f"year_localization_suzeva/olmo2-1b-4xH100-2ndtry_step-10000" 
-
+model_name = 'OLMo-2-0425-1B'
+EXPERIMENT_NAME = 'year_localization_allenai_OLMo-2-0425-1B_main_new_support_files' 
+model_name = 'OLMo-2-0425-1B'
+revision = 'main'
 
 # model_name = 'OLMo-2-0425-1B'
 # EXPERIMENT_NAME = 'year_localization_AI2_full_model' 

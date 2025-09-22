@@ -1,0 +1,15 @@
+Model: OLMo-2-0425-1B, Revision: main
+
+Digit  Tense  Count  P(Tense|Digit)
+0      were   1      1.000         
+1      were   5      1.000         
+2      was    3      1.000         
+3      was    6      1.000         
+4      was    3      1.000         
+5      was    2      0.500         
+5      were   2      0.500         
+6      were   1      0.333         
+6      was    2      0.667         
+7      was    1      1.000         
+8      was    2      1.000         
+9      was    2      1.000         

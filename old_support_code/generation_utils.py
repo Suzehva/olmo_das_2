@@ -183,7 +183,6 @@ def add_user_prompt(p):
 def identity_fn(p):
   return p
 
-
 def apply_chat_template(
   tokenizer, prompts, per_template_fn=None, post_template_fn=None
 ):
