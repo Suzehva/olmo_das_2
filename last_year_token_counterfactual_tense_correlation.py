@@ -222,23 +222,11 @@ USER = 'aditijb'
 # revision = "step-10000"
 # EXPERIMENT_NAME = f"year_localization_suzeva/olmo2-1b-4xH100-2ndtry_step-10000" 
 
-model_name = 'OLMo-2-0425-1B'
-EXPERIMENT_NAME = 'year_localization_allenai_OLMo-2-0425-1B_main_datafull_train0step_testfull' 
+EXPERIMENT_NAME = 'year_localization_allenai_OLMo-2-0425-1B_main_1000_3000_minus_ood'   # just use the folder name
 model_name = 'OLMo-2-0425-1B'
 revision = 'main'
 
-# model_name = 'OLMo-2-0425-1B'
-# EXPERIMENT_NAME = 'year_localization_AI2_full_model' 
-# model_name = 'OLMo-2-0425-1B'
-# revision = 'main'
-
-# model_name = 'OLMo-2-0425-1B'
-# EXPERIMENT_NAME = 'year_localization_AI2_10k_model'
-# model_name = 'OLMo-2-0425-1B'
-# revision = 'stage1-step10000-tokens21B'
-
 FILEPATH = f'/nlp/scr/{USER}/olmo_das_2/{EXPERIMENT_NAME}/metadata/split_to_raw_example_year_{model_name}-revision{revision}.json'
-
 
 counts_past_pres_future()
 counts_was_were_is_are_will()

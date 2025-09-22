@@ -1,0 +1,12 @@
+trained 0 step ai2 model on labels from full ai2 model, and evaluating on the full ai2 modelmodel: OLMo-2-0425-1B_main
+inv_dims: [8]
+
+layer=0	1.00
+layer=1	1.00
+layer=2	1.00
+layer=3	1.00
+layer=4	1.00
+layer=5	1.00
+layer=6	1.00
+layer=7	1.00
+layer=8	1.00
