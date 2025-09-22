@@ -276,8 +276,10 @@ def eval_with_interventions_batched(
     # Default to generate.
     inference_mode = "generate"
   assert inference_mode in ("generate", "forward", "force_decode")
+
   if compute_metrics_fn is None:
     compute_metrics_fn = compute_metrics
+  
   split_to_eval_metrics = {}
   padding_offset = get_label_offset(tokenizer)
   num_inv = len(intervenable.interventions)
@@ -295,6 +297,7 @@ def eval_with_interventions_batched(
     max_input_length = split_to_inv_locations[merged_dataset[0]["split"]][
       "max_input_length"
     ]
+
   eval_dataloader = get_dataloader(
     merged_dataset,
     tokenizer=tokenizer,
@@ -309,6 +312,7 @@ def eval_with_interventions_batched(
   var_code = []
   source_label = []
   current_split = list(split_to_dataset)[0]
+
   with torch.no_grad():
     if debug_print:
       epoch_iterator = tqdm(eval_dataloader, desc="Test")
@@ -337,6 +341,7 @@ def eval_with_interventions_batched(
           "base_labels",
         ):
           inputs[key] = inputs[key].to(intervenable.model.device)
+      
       if intervention_location_fn is not None:
         intervention_locations = intervention_location_fn(inputs, num_inv)
       else:
@@ -445,6 +450,8 @@ def eval_with_interventions_batched(
         )
         counterfactual_outputs = counterfactual_outputs.logits
         base_outputs = base_outputs.logits
+
+      debug_print = True
 
       split_offset = [
         0,
@@ -716,7 +723,7 @@ def compute_logits_metrics(
       eval_label[0].view(-1),
     )
     metrics[key] = {
-      "accuracy": -1,
+      "accuracy": loss_mean_repr[0].tolist(), # -1,  # ADITI CHANGED THIS 
       "token_accuracy": -1,
       "loss": np.mean(loss_agg).tolist(),
       "loss_exp": np.mean(loss_exp_agg).tolist(),
@@ -726,5 +733,7 @@ def compute_logits_metrics(
       "loss_exp_min": np.min(loss_exp_agg).tolist(),
       "loss_mean_repr": loss_mean_repr[0].tolist(),
     }
-  metrics["accuracy"] = metrics["inv_outputs"]["loss_mean_repr"]
+
+  metrics["accuracy"] = metrics["inv_outputs"]["loss_mean_repr"]   # THIS WASNT WORKING BECAUSE WE"RE NOT INDEXING INTO KEY
+
   return metrics

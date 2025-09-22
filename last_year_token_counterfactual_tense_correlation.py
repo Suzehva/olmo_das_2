@@ -222,7 +222,7 @@ USER = 'aditijb'
 # revision = "step-10000"
 # EXPERIMENT_NAME = f"year_localization_suzeva/olmo2-1b-4xH100-2ndtry_step-10000" 
 
-EXPERIMENT_NAME = 'year_localization_allenai_OLMo-2-0425-1B_main_1000_3000_minus_ood'   # just use the folder name
+EXPERIMENT_NAME = 'year_localization_allenai_OLMo-2-0425-1B_main_logits'   # just use the folder name
 model_name = 'OLMo-2-0425-1B'
 revision = 'main'
 
@@ -233,6 +233,12 @@ counts_was_were_is_are_will()
 
 
 counts_past_pres_future_train_test()
+
+
+
+
+
+
 
 # The json files look like this: and the last year token will be "4" for 2034 and "1" for 2041, etc. the counterfactual tense label is the "inv label" provided. please write a simple correlation script. here is the filepath
 
