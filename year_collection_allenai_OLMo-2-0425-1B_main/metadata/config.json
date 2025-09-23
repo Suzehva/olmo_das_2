@@ -1,0 +1,12 @@
+{
+  "prompt_template": [
+    "In {year} there"
+  ],
+  "FOLDER": "olmo_das_2/year_collection_allenai_OLMo-2-0425-1B_main",
+  "META_DATA_FOLDER": "year_collection_allenai_OLMo-2-0425-1B_main/metadata",
+  "PROJECT_NAME": "ood-prediction",
+  "DATA_DIR": "/nlp/scr/aditijb/data",
+  "MODEL_DIR": "/nlp/scr/aditijb/models",
+  "model_id": "allenai/OLMo-2-0425-1B",
+  "revision": "main"
+}
