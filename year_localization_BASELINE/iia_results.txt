@@ -1,0 +1,11 @@
+model=allenai/OLMo-2-0425-1B_stage1-step0-tokens0B
+BASELINE; labels from full model
+layer=0  	dim=2:0.76	dim=4:0.85
+layer=1  	dim=2:0.77	dim=4:0.86
+layer=2  	dim=2:0.87	dim=4:0.92
+layer=3  	dim=2:0.88	dim=4:0.93
+layer=4  	dim=2:0.97	dim=4:0.98
+layer=5  	dim=2:0.97	dim=4:0.98
+layer=6  	dim=2:0.96	dim=4:0.99
+layer=7  	dim=2:0.77	dim=4:0.84
+layer=8  	dim=2:0.77

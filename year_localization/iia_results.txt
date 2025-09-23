@@ -1,12 +1,27 @@
-model=OLMo-2-0425-1B
-layer=0	dim=1:0.72	dim=2:0.76	dim=4:0.85	dim=8:0.93
-layer=1	dim=1:0.72	dim=2:0.77	dim=4:0.86	dim=8:0.92
-layer=2	dim=1:0.71	dim=2:0.86	dim=4:0.92	dim=8:0.95
-layer=3	dim=1:0.73	dim=2:0.88	dim=4:0.93	dim=8:0.95
-layer=4	dim=2:0.86	dim=4:0.98	dim=8:0.98
-layer=5	dim=2:0.97	dim=4:0.98	dim=8:0.99
-layer=6	dim=2:0.98	dim=4:0.99	dim=8:0.99
-layer=7	dim=2:0.77	dim=4:0.97	dim=8:0.98
-layer=8	dim=2:0.78	dim=4:0.86	dim=8:0.92
-layer=9	dim=2:0.76	dim=4:0.77	dim=8:0.81
-layer=10	dim=2:0.75	dim=4:0.75	dim=8:0.76
+model=allenai/OLMo-2-0425-1B_main
+layer		dim=1	dim=2	dim=4	dim=8	dim=16	dim=32	dim=64
+layer=0  	0.72	0.76	0.85	0.93	x	x	x
+layer=1  	0.72	0.77	0.86	0.92	x	x	x
+layer=2  	0.71	0.86	0.92	0.95	x	x	x
+layer=3  	0.73	0.88	0.93	0.95	x	x	x
+layer=4  	0.74	0.86	0.98	0.98	x	x	x
+layer=5  	0.77	0.97	0.98	0.99	x	x	x
+layer=6  	0.73	0.98	0.99	0.99	x	x	x
+layer=7  	x	0.77	0.97	0.98	x	x	x
+layer=8  	x	0.78	0.86	0.92	x	x	x
+layer=9  	x	0.76	0.77	0.81	x	x	x
+layer=10  	x	0.75	0.75	0.76	x	x	x
+layer=11  	x	0.65	0.74	0.72	x	x	x
+layer=12  	x	0.32	0.34	0.36	x	x	x
+layer=13  	x	x	x	x	x	x	x
+layer=14  	x	x	x	x	x	x	x
+layer=15  	x	x	x	x	x	x	x
+layer=16  	x	x	x	x	x	x	x
+layer=17  	x	x	x	x	x	x	x
+layer=18  	x	x	x	x	x	x	x
+layer=19  	x	x	x	x	x	x	x
+layer=20  	x	x	x	x	x	x	x
+layer=21  	x	x	x	x	x	x	x
+layer=22  	x	x	x	x	x	x	x
+layer=23  	x	x	x	x	x	x	x
+layer=24  	x	x	x	x	x	x	x
