@@ -12,7 +12,7 @@ FEATURE_TYPES = datasets.Features(
     "label": datasets.Value("string"),
     "source_input": datasets.Value("string"),
     "source_label": datasets.Value("string"),
-    "inv_label": datasets.Value("string"),
+    "inv_label": [datasets.Value("string")],
     "split": datasets.Value("string"),
     "source_split": datasets.Value("string"),
   }
