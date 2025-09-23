@@ -1,5 +1,5 @@
 {
-  "baseline_acc": 0.014084507042253521,
-  "count_training": 716,
-  "count_validation": 780
+  "baseline_acc": 0.154,
+  "count_training": 12972,
+  "count_validation": 711
 }
