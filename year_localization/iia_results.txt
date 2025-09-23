@@ -1,10 +1,12 @@
 model=OLMo-2-0425-1B
-layer=0  	dim=1:0.72	dim=2:0.76	dim=4:0.85	dim=8:0.93
-layer=1  	dim=1:0.72	dim=2:0.77	dim=4:0.86	dim=8:0.92
-layer=2  	dim=1:0.71	dim=2:0.86	dim=4:0.92	dim=8:0.95
-layer=3  	dim=2:0.88	dim=4:0.93	dim=8:0.95
-layer=4  	dim=2:0.86	dim=4:0.98	dim=8:0.98
-layer=5  	dim=2:0.97	dim=4:0.98	dim=8:0.99
-layer=6  	dim=2:0.98	dim=4:0.99
-layer=9  	dim=2:0.76	dim=4:0.77	dim=8:0.81
-layer=10  	dim=2:0.75	dim=4:0.75
+layer=0	dim=1:0.72	dim=2:0.76	dim=4:0.85	dim=8:0.93
+layer=1	dim=1:0.72	dim=2:0.77	dim=4:0.86	dim=8:0.92
+layer=2	dim=1:0.71	dim=2:0.86	dim=4:0.92	dim=8:0.95
+layer=3	dim=1:0.73	dim=2:0.88	dim=4:0.93	dim=8:0.95
+layer=4	dim=2:0.86	dim=4:0.98	dim=8:0.98
+layer=5	dim=2:0.97	dim=4:0.98	dim=8:0.99
+layer=6	dim=2:0.98	dim=4:0.99	dim=8:0.99
+layer=7	dim=2:0.77	dim=4:0.97	dim=8:0.98
+layer=8	dim=2:0.78	dim=4:0.86	dim=8:0.92
+layer=9	dim=2:0.76	dim=4:0.77	dim=8:0.81
+layer=10	dim=2:0.75	dim=4:0.75	dim=8:0.76
