@@ -1,4 +1,6 @@
 model=OLMo-2-0425-1B
-layer=0	dim=4:0.85
-layer=1	dim=4:0.86
-layer=5	dim=4:0.98
+layer=0	dim=2:0.76	dim=4:0.85	dim=8:0.93
+layer=1	dim=2:0.77	dim=4:0.86	dim=8:0.92
+layer=2	dim=2:0.86	dim=4:0.92	dim=8:0.95
+layer=3	dim=2:0.88	dim=4:0.93	dim=8:0.95
+layer=5	dim=2:0.97	dim=4:0.98	dim=8:0.99
